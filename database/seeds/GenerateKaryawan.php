@@ -12,7 +12,7 @@ class GenerateKaryawan extends Seeder
      */
     public function run()
     {
-        Excel::load('storage\app\karyawan.xlsx', function($reader){
+        Excel::load('storage/app/karyawan.xlsx', function($reader){
         	$karyawan = [];
         	$data = $reader->get();
         	foreach ($data as $d) {
