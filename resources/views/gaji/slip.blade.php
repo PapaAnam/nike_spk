@@ -69,7 +69,7 @@
 				<td width="30px">{{ $i++ }}</td>
 				<td width="130px">Paguyuban</td>
 				<td width="30px">Rp</td>
-				<td align="right">{{ 'belum tau' }}</td>
+				<td align="right">{{ number_format($d->pot_satu_persen, 0, ',', '.') }}</td>
 			</tr>
 			<tr>
 				<td></td>
@@ -274,7 +274,7 @@
 		</tbody>
 	</table>
 	<div style="font-size: 8.5px; width: 100%; margin-top: 20px;">
-		<div style="width: 40%; float: left;">*) Parameter Tukin Anda :   {{ $d->paramter_tukin }}% ( {{ $d->sabcd }} )</div>
+		<div style="width: 40%; float: left;">*) Parameter Tukin Anda :   {{ $d->parameter_tukin }}% ( {{ $d->sabcd }} )</div>
 		<div style="width: 50%; float: right;" align="right"><b>Jakarta, {{ $tanggal }}</b></div>
 		<br>
 		<i>“{{ $kalimatBijak }}”</i>
