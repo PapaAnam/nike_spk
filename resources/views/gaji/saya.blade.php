@@ -40,7 +40,36 @@
                 <div class="card-header">
                     Data Gaji Saya
                 </div>
-                @include('gaji.tabel-gaji')
+                <div class="card-body">
+                    @if(count($data)>0)
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Bulan</th>
+                                <th>Gaji Bersih</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($data as $d)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $d->nama_bulan }}</td>
+                                <td>{{ number_format($d->jumlah_bersih, 0, ',', '.') }}</td>
+                                <td>
+                                    <a target="_blank" href="{{ route('slip', [$d->id]) }}" class="btn btn-sm btn-danger">Slip</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @else
+                    <div class="alert alert-danger">
+                        Tidak ada gaji
+                    </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

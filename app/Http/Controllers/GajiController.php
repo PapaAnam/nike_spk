@@ -152,9 +152,10 @@ class GajiController extends Controller
 	{
 		$tanggal = date('d').' '.$this->getNamaBulan(date('m')).' '.date('Y');
 		$gaji = Gaji::with('karyawan')->where('id',$id)->first();
+		$kl = KalimatBijak::where('bulan', $gaji->bulan)->where('tahun', $gaji->tahun)->first();
 		return view('gaji.slip',[
 			'd'=>$gaji,
-			'kalimatBijak'=>KalimatBijak::where('bulan', $gaji->bulan)->where('tahun', $gaji->tahun)->first()->kalimat_bijak,
+			'kalimatBijak'=>is_null($kl) ? '' : $kl->kalimat_bijak,
 			'namaBulan'=>$this->getBulan()[$gaji->bulan-1],
 			'tanggal'=>$tanggal,
 		]);

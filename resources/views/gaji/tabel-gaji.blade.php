@@ -20,7 +20,7 @@
                 <td>{{ $d->karyawan->nama }}</td>
                 <td>{{ $d->jabatan }}</td>
                 <td>{{ $d->pangkat_gol }}</td>
-                <td>{{ $d->bersih }}</td>
+                <td>{{ number_format($d->jumlah_bersih, 0, ',', '.') }}</td>
                 <td>
                     <a target="_blank" href="{{ route('slip', [$d->id]) }}" class="btn btn-sm btn-danger">Slip</a>
                 </td>
