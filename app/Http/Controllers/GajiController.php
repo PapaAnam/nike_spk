@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Gaji;
+use App\KalimatBijak;
+use Storage;
+use Excel;
 
 class GajiController extends Controller
 {
@@ -151,6 +154,7 @@ class GajiController extends Controller
 		$gaji = Gaji::with('karyawan')->where('id',$id)->first();
 		return view('gaji.slip',[
 			'd'=>$gaji,
+			'kalimatBijak'=>KalimatBijak::where('bulan', $gaji->bulan)->where('tahun', $gaji->tahun)->first()->kalimat_bijak,
 			'namaBulan'=>$this->getBulan()[$gaji->bulan-1],
 			'tanggal'=>$tanggal,
 		]);
@@ -173,6 +177,68 @@ class GajiController extends Controller
 			case '12': return 'Desember'; break;
 			default: return 'Tidak valid!!!'; break;
 		}
+	}
+
+	public function imporExcel()
+	{
+		return view('gaji.impor-excel', [
+			'bulan'=>$this->getBulan(),
+			'tahun'=>$this->getTahun(),
+			'active'=>'gaji',
+		]);
+	}
+
+	public function imporPost(Request $r)
+	{
+		$r->validate([
+			'bulan'=>'required',
+			'tahun'=>'required',
+			'excel'=>'required|mimes:xls,xlsx',
+			'kalimat_bijak'=>'required'
+		]);
+		$path = $r->file('excel')->store('impor-excel');
+		Excel::load('storage/app/'.$path, function($reader) use ($r){
+			$bulan = $r->bulan;
+			$tahun = $r->tahun;
+			$data = $reader->get();
+			foreach($data as $gaji){
+				$nip = $gaji->nip;
+				$user = User::where('nip', $nip)->first();
+				if(!is_null($user)){
+					$id_user = $user->id;
+					$except = [
+						'rekening',
+						'nama_pemilik_rekening',
+						'jabatan',
+						'seksi_kelompok',
+						'parameter_tukin',
+						'pangkat_gol',
+						'nip',
+						'sabcd'
+					];
+					$gaji->transform(function($item, $key) use ($except){
+						if($key == 'sabcd'){
+							return strtoupper($item);
+						}
+						return in_array($key, $except) ? (String) $item : (Double) $item;
+					});
+					$storeData = $gaji->except('nip')->toArray();
+					$gajidb = Gaji::updateOrCreate([
+						'bulan'=>$r->bulan,
+						'tahun'=>$r->tahun,
+						'id_user'=>$id_user
+					], $storeData);
+				}
+			}
+		});
+		Storage::deleteDirectory('impor-excel');
+		KalimatBijak::updateOrCreate([
+			'bulan'=>$r->bulan,
+			'tahun'=>$r->tahun,
+		],[
+			'kalimat_bijak'=>$r->kalimat_bijak
+		]);
+		return redirect()->route('gaji')->with('success_msg', 'Impor dari excel berhasil dilakukan');
 	}
 
 }

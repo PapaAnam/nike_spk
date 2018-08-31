@@ -9,6 +9,9 @@
                 {{ session('status') }}
             </div>
             @endif
+            @if(session('success_msg'))
+                <div class="alert alert-success">{{ session('success_msg') }}</div>
+            @endif
             <div class="card mb-5">
                 <div class="card-header">Pilih bulan dan tahun</div>
                 <div class="card-body">
@@ -49,8 +52,14 @@
             <div class="card">
                 <div class="card-header">
                     Data Gaji
+                    &nbsp;
+                    &nbsp;
                     <a href="{{ route('gaji-baru') }}" class="btn btn-primary btn-sm float-right">
                         Gaji Baru
+                    </a>
+                    &nbsp;
+                    <a href="{{ route('impor-excel') }}" class="btn btn-success btn-sm float-right mr-2">
+                        Impor dari excel
                     </a>
                 </div>
                 @include('gaji.tabel-gaji')

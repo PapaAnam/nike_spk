@@ -82,6 +82,9 @@
                     @include('input', ['id'=>'rekening','value'=>$d->rekening,'label'=>'Rekening'])
                 </div>
                 <div class="col-md-4">
+                    @include('input', ['id'=>'nama_pemilik_rekening','value'=>$d->nama_pemilik_rekening,'label'=>'Nama Pemilik Rekening'])
+                </div>
+                <div class="col-md-4">
                     @include('input', ['id'=>'jabatan','value'=>$d->jabatan,'label'=>'Jabatan'])
                 </div>
                 <div class="col-md-4">
@@ -233,6 +236,9 @@
                 </div>
                 <div class="col-md-4">
                     @include('input', ['id'=>'rekening','value'=>0,'label'=>'Rekening'])
+                </div>
+                <div class="col-md-4">
+                    @include('input', ['id'=>'nama_pemilik_rekening','value'=>'','label'=>'Nama Pemilik Rekening'])
                 </div>
                 <div class="col-md-4">
                     @include('input', ['id'=>'jabatan','label'=>'Jabatan'])

@@ -39,8 +39,14 @@
                         <li class="nav-item {{ isset($active) ? ($active == 'karyawan' ? 'active' : '') : '' }}">
                             <a class="nav-link" href="{{ route('karyawan') }}">Data Karyawan</a>
                         </li>
+                        <li class="nav-item {{ isset($active) ? ($active == 'karyawan.create' ? 'active' : '') : '' }}">
+                            <a class="nav-link" href="{{ route('karyawan.create') }}">Tambah Karyawan</a>
+                        </li>
                         <li class="nav-item {{ isset($active) ? ($active == 'gaji' ? 'active' : '') : '' }}">
                             <a class="nav-link" href="{{ route('gaji') }}">Data Gaji</a>
+                        </li>
+                        <li class="nav-item {{ isset($active) ? ($active == 'kalimat-bijak' ? 'active' : '') : '' }}">
+                            <a class="nav-link" href="{{ route('kalimat-bijak') }}">Kalimat Bijak</a>
                         </li>
                         @else
                         <li class="nav-item {{ isset($active) ? ($active == 'gaji-saya' ? 'active' : '') : '' }}">

@@ -17,4 +17,28 @@ class KaryawanController extends Controller
 		]);
 	}
 
+	public function create()
+	{
+		return view('karyawan.create',[
+			'active'=>'karyawan.create'
+		]);
+	}
+
+	public function store(Request $r)
+	{
+		$r->validate([
+			'nip'=>'required|numeric',
+			'nama'=>'required',
+		]);
+		User::updateOrCreate([
+			'nip'=>$r->nip
+		],[
+			'nama'=>$r->nama,
+			'username'=>$r->nip,
+			'password'=>bcrypt($r->nip),
+			'role'=>'karyawan',
+		]);
+		return redirect()->route('karyawan')->with('success_msg', 'Karyawan baru berhasil ditambahkan');
+	}
+
 }

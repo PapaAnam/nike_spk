@@ -9,42 +9,36 @@
         </div>
         @endif
         <div class="col-md-12">
-            <a class="mb-2 btn btn-primary btn-sm" href="{{ route('karyawan.create') }}">Tambah Karyawan</a>
+            {{-- <a class="mb-2 btn btn-primary btn-sm" href="{{ route('karyawan.create') }}">Tambah Karyawan</a> --}}
         </div>
-        @php
-        $i = 1;
-        @endphp
-        @foreach($data->split(2) as $data2)
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Data Karyawan</div>
+                <div class="card-header">Data Kalimat Bijak</div>
 
                 <div class="card-body">
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>NIP</th>
-                                <th>Nama</th>
+                                <th>Bulan</th>
+                                <th>Tahun</th>
+                                <th>Kalimat</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($data2 as $d)
+                            @foreach($data as $d)
                             <tr>
-                                <td>{{ $i }}</td>
-                                <td>{{ $d->nip }}</td>
-                                <td>{{ $d->nama }}</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $d['bulan'] }}</td>
+                                <td>{{ $d['tahun'] }}</td>
+                                <td>{{ $d['kalimat_bijak'] }}</td>
                             </tr>
-                            @php
-                            $i++;
-                            @endphp
                             @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        @endforeach
     </div>
 </div>
 @endsection

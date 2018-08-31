@@ -274,10 +274,10 @@
 		</tbody>
 	</table>
 	<div style="font-size: 8.5px; width: 100%; margin-top: 20px;">
-		<div style="width: 40%; float: left;">*) Parameter Tukin Anda :   124,33% ( A )</div>
+		<div style="width: 40%; float: left;">*) Parameter Tukin Anda :   {{ $d->paramter_tukin }}% ( {{ $d->sabcd }} )</div>
 		<div style="width: 50%; float: right;" align="right"><b>Jakarta, {{ $tanggal }}</b></div>
 		<br>
-		<i>“Salah satu cara untuk melakukan pekerjaan hebat adalah cintai apa yang Anda lakukan.”</i>
+		<i>“{{ $kalimatBijak }}”</i>
 	</div>	
 	<script>
 		window.print();
