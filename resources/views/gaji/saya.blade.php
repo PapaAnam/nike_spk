@@ -58,7 +58,7 @@
                                 <td>{{ $d->nama_bulan }}</td>
                                 <td>{{ number_format($d->jumlah_bersih, 0, ',', '.') }}</td>
                                 <td>
-                                    <a target="_blank" href="{{ route('slip', [$d->id]) }}" class="btn btn-sm btn-danger">Slip</a>
+                                    <a target="_blank" href="{{ route('slip', [$d->id]) }}" class="btn btn-sm btn-danger">Cetak Slip</a>
                                 </td>
                             </tr>
                             @endforeach

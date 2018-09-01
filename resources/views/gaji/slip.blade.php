@@ -76,7 +76,7 @@
 				<td width="10px">a</td>
 				<td width="130px">Gaji Pokok</td>
 				<td width="10px">Rp</td>
-				<td align="right" width="70px">{{ number_format($d->gaji, 0, ',', '.') }}</td>
+				<td align="right" width="150px">{{ number_format($d->gaji, 0, ',', '.') }}</td>
 				<td colspan="2"></td>
 				<td width="10px">{{ $i++ }}</td>
 				<td>Bank BRI</td>

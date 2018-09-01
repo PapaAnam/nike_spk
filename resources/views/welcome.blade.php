@@ -77,8 +77,19 @@
             @endif
 
             <div class="content">
+                <img src="{{ asset('images/logo.jpeg') }}" class="img-thumbnail rounded mx-auto d-block" style="max-width: 150px; margin-top: 20px;" alt="">
                 <div class="title m-b-md">
-                    {{ config('app.name') }}
+                    Selamat Datang
+                </div>
+
+                <div style="max-width: 50%; margin-left: 25%; font-size: 20px;" align="center">
+                    Hallo semua, disini akan diberikan informasi mengenai hal-hal teknis yang berhubungan dengan keuangan di KPP PMA Satu.
+Untuk tahap pertama ini akan dilaunching untuk pencetakan slip gaji secara online. Jadi bagi rekkan-rekan yang membutuhkan slip gaji, baik bulan sekarang atau bulan-bulan sebelumnya bisa mencetaknya disini. Jika nanti diperlukan tandatangan dan stempel dari Bendahara, silakan bawa cetakan slip gajinya ke Ruang Bendahara pada Hari dan Jam Kerja
+<h3>Semoga bermanfaat bagi kita semua ^^</h3>
+@auth
+@else
+<h5>Silakan <a href="{{ route('login') }}">login</a> terlebih dahulu</h5>
+@endauth
                 </div>
 
                 <div class="links">
