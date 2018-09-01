@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Selamat datang di sistem penggajian karyawan
+                    Selamat datang di {{ config('app.name') }}
                 </div>
             </div>
         </div>
