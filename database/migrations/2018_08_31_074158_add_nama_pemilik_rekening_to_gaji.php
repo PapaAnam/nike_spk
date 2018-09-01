@@ -14,7 +14,7 @@ class AddNamaPemilikRekeningToGaji extends Migration
     public function up()
     {
         Schema::table('gaji', function (Blueprint $table) {
-            $table->string('nama_pemilik_rekening')->after('rekening');
+            $table->string('nama_pemilik_rekening')->nullable()->after('rekening');
         });
     }
 
