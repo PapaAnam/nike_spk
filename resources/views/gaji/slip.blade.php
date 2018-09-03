@@ -76,7 +76,7 @@
 				<td width="10px">a</td>
 				<td width="130px">Gaji Pokok</td>
 				<td width="10px">Rp</td>
-				<td align="right" width="150px">{{ number_format($d->gaji, 0, ',', '.') }}</td>
+				<td align="right" width="150px">{{ number_format($d->gjpokok, 0, ',', '.') }}</td>
 				<td colspan="2"></td>
 				<td width="10px">{{ $i++ }}</td>
 				<td>Bank BRI</td>
@@ -237,7 +237,7 @@
 				<td>a</td>
 				<td width="150px">Tunjangan Kerja</td>
 				<td>Rp</td>
-				<td align="right" width="70px">{{ number_format($d->gaji, 0, ',', '.') }}</td>
+				<td align="right" width="70px">{{ number_format($d->tunjangan_pokok, 0, ',', '.') }}</td>
 			</tr>
 			<tr>
 				<td></td>
@@ -269,7 +269,7 @@
 				<td colspan="7"></td>
 				<td style="border-bottom: 1px solid black;" colspan="2" align="center"><strong>GAJI BERSIH</strong></td>
 				<td style="border-bottom: 1px solid black;">Rp</td>
-				<td style="border-bottom: 1px solid black;" align="right"><strong>{{ number_format($d->jumlah_bersih, 0, ',', '.') }}</strong></td>
+				<td style="border-bottom: 1px solid black;" align="right"><strong>{{ number_format($d->bersih, 0, ',', '.') }}</strong></td>
 			</tr>
 		</tbody>
 	</table>
