@@ -208,7 +208,7 @@
 				<td>Gaji Bersih</td>
 				<td colspan="2"></td>
 				<td>Rp</td>
-				<td align="right">{{ number_format($d->jumlah_bersih, 0, ',', '.') }}</td>
+				<td align="right">{{ number_format($d->bersih, 0, ',', '.') }}</td>
 				<td>{{ $i++ }}</td>
 				<td>Qurban</td>
 				<td>Rp</td>
@@ -269,7 +269,7 @@
 				<td colspan="7"></td>
 				<td style="border-bottom: 1px solid black;" colspan="2" align="center"><strong>GAJI BERSIH</strong></td>
 				<td style="border-bottom: 1px solid black;">Rp</td>
-				<td style="border-bottom: 1px solid black;" align="right"><strong>{{ number_format($d->bersih, 0, ',', '.') }}</strong></td>
+				<td style="border-bottom: 1px solid black;" align="right"><strong>{{ number_format($d->jumlah_bersih, 0, ',', '.') }}</strong></td>
 			</tr>
 		</tbody>
 	</table>
