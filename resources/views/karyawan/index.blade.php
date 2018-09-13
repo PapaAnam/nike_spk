@@ -35,7 +35,7 @@
                                 <td>{{ $i }}</td>
                                 <td>{{ $d->nip }}</td>
                                 <td>{{ $d->nama }}</td>
-                                <td><a href="{{ route('edit-password', [$d->id]) }}" class="btn btn-sm btn-primary">Ubah</a></td>
+                                <td><a href="{{ route('edit-password', [$d->id]) }}" class="btn btn-sm btn-primary">Ubah Password</a></td>
                             </tr>
                             @php
                             $i++;
