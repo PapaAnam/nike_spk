@@ -37,4 +37,7 @@ Route::middleware('auth')->group(function(){
 	Route::get('/ubah-password', 'PasswordController@edit')->name('ubah-password');
 	Route::put('/ubah-password', 'PasswordController@update')->name('update-password');
 
+	Route::get('/edit-password/{id}', 'PasswordController@editOlehAdmin')->name('edit-password');
+	Route::put('/perbarui-password/{id}', 'PasswordController@perbaruiOlehAdmin')->name('perbarui-password');
+
 });
